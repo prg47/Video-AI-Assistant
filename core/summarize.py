@@ -44,7 +44,7 @@ def summarize(transcript : str)-> list:
     ])
 
     combined_chain = (
-        RunnablePassthrough() | RunnableLambda(lambda x : {"text" : x}) | combined_prompt | llm | StrOutputParser
+        RunnablePassthrough() | RunnableLambda(lambda x : {"text" : x}) | combined_prompt | llm | StrOutputParser()
     )
 
     return combined_chain.invoke(combined)
